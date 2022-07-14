@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="LoadingMoreItemsContainerStyle">
         <item name="android:layout_height">@dimen/more_items_loading_container_height</item>
         <item name="android:layout_width">0dp</item>
@@ -48,6 +49,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">0dp</item>
         <item name="srcCompat">@drawable/ic_attachment</item>
+        <item name="android:tint">@color/default_text_color</item>
     </style>
 
     <style name="UserFavouriteImageStyle">
