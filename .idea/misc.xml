@@ -3,8 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/drawable/attachment-48px.xml" value="0.224" />
+        <entry key="app/src/main/res/drawable/bg_oval.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/ic_attachment.xml" value="0.1375" />
+        <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.235" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.235" />
+        <entry key="app/src/main/res/drawable/ic_star_empty.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/ic_star_full.xml" value="0.1375" />
+        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.225" />
+        <entry key="app/src/main/res/drawable/iv_person.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.43645833333333334" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/fragment_users.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/item_user.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.215625" />
       </map>
     </option>
   </component>

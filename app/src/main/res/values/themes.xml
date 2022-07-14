@@ -1,25 +1,40 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="Theme.RandomUsers" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+
+    <style name="Theme.RandomUsers" parent="Theme.MaterialComponents.Light.NoActionBar"><!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorPrimaryVariant">@color/primary_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+
+        <item name="colorSecondary">@color/secondary_200</item>
+        <item name="colorSecondaryVariant">@color/secondary_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
+        <item name="android:textColorPrimary">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@color/default_text_color</item>
     </style>
 
-    <style name="Theme.RandomUsers.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="ToolbarStyle" parent="Theme.RandomUsers">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="elevation">@dimen/toolbar_elevation</item>
     </style>
 
-    <style name="Theme.RandomUsers.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="MainFragmentContainerStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:name">androidx.navigation.fragment.NavHostFragment</item>
+        <item name="defaultNavHost">true</item>
+        <item name="navGraph">@navigation/main_graph</item>
+    </style>
 
-    <style name="Theme.RandomUsers.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="LoadingContainerStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@color/loading_background</item>
+        <item name="android:visibility">gone</item>
+    </style>
 </resources>

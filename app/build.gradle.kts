@@ -27,9 +27,13 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "BASE_URL", "\"https://somereleaseurl.me/api/\"")
+            buildConfigField("String", "USERS_SEED", "\"abcd\"")
+            buildConfigField("int", "USERS_PER_PAGE", "30")
         }
         debug {
             buildConfigField("String", "BASE_URL", "\"https://randomuser.me/api/\"")
+            buildConfigField("String", "USERS_SEED", "\"abc\"")
+            buildConfigField("int", "USERS_PER_PAGE", "20")
         }
     }
 

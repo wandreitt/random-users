@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/default_horizontal_spacing"
+    android:paddingVertical="@dimen/default_vertical_spacing">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPicture"
+        style="@style/UserPictureStyle"
+        app:layout_constraintBottom_toTopOf="@id/ivFavourite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        style="@style/UserNameStyle"
+        app:layout_constraintEnd_toStartOf="@+id/ivAttachment"
+        app:layout_constraintStart_toEndOf="@id/ivPicture"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Scott Ernest" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDetails"
+        style="@style/UserDetailsStyle"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        tools:text="28 years old from US" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAttachment"
+        style="@style/UserAttachmentImageStyle"
+        app:layout_constraintBottom_toBottomOf="@id/tvUserTime"
+        app:layout_constraintEnd_toStartOf="@id/tvUserTime"
+        app:layout_constraintTop_toTopOf="@id/tvUserTime" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvUserTime"
+        style="@style/UserTimeStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="15:38" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFavourite"
+        style="@style/UserFavouriteImageStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserTime" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
