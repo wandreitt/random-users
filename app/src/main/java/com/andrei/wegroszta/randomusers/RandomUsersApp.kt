@@ -1,6 +1,7 @@
 package com.andrei.wegroszta.randomusers
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class RandomUsersApp : Application() {
-}
+@HiltAndroidApp
+class RandomUsersApp : Application()
