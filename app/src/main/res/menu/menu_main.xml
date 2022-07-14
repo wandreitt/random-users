@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.andrei.wegroszta.randomusers.MainActivity">
     <item
-        android:id="@+id/action_search"
-        android:icon="@android:drawable/ic_menu_search"
+        android:id="@+id/actionSearch"
+        android:icon="@drawable/ic_search"
         android:title="@string/action_search"
         app:showAsAction="always" />
 </menu>

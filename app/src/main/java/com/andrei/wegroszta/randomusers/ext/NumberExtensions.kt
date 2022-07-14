@@ -21,6 +21,10 @@ fun Int.minutesToMillis(): Int = this * MILLIS_IN_MINUTE
 
 fun Int.hoursToMillis(): Int = this * MILLIS_IN_HOUR
 
+/**
+ * @param timezoneOffset should be in the +/-hh:mm format
+ * e.g. "-3:30", "+2:00", "+5:45"
+ */
 fun Long.convertTimestampToOffsetHourMinutes(
     timezoneOffset: String
 ): String {
@@ -34,8 +38,8 @@ fun Long.convertTimestampToOffsetHourMinutes(
     val absOffset = absoluteHours.hoursToMillis() + minutes.minutesToMillis()
     val offset = if (shouldAdd) absOffset else -absOffset
 
-    val nowInUTC = this.localDateTimestampToUTCTimestamp()
-    val nowWithOffset = nowInUTC + offset
+    val thisInUTC = this.localDateTimestampToUTCTimestamp()
+    val thisWithOffset = thisInUTC + offset
 
-    return nowWithOffset.toLocalStringHoursMinutes()
+    return thisWithOffset.toLocalStringHoursMinutes()
 }

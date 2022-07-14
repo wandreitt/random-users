@@ -1,7 +1,7 @@
 package com.andrei.wegroszta.randomusers.users.ui
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.andrei.wegroszta.randomusers.common.ErrorHandlingViewModel
+import com.andrei.wegroszta.randomusers.entities.RandomUsersException
 import com.andrei.wegroszta.randomusers.ext.convertTimestampToOffsetHourMinutes
 import com.andrei.wegroszta.randomusers.users.data.User
 import com.andrei.wegroszta.randomusers.users.data.UsersRepository
@@ -10,13 +10,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class UsersViewModel @Inject constructor(
     private val usersRepository: UsersRepository
-) : ViewModel() {
+) : ErrorHandlingViewModel() {
 
     private val _usersUIState = MutableStateFlow(UsersUIState())
     val usersUIState: StateFlow<UsersUIState> = _usersUIState.asStateFlow()
@@ -27,19 +26,37 @@ class UsersViewModel @Inject constructor(
         loadNextPage()
     }
 
-    fun loadNextPage() {
-        _usersUIState.update { it.copy(isLoading = true) }
+    private fun loadNextPage() {
+        _usersUIState.update { it.copy(isLoading = currentPage == 0) }
 
-        viewModelScope.launch {
+        launchWithErrorHandling {
             val users = usersRepository.loadUsers(currentPage++)
 
+            val newItems = _usersUIState.value.userItems.toMutableSet()
+            newItems.addAll(users.toUserItemUIStateList())
             _usersUIState.update {
                 it.copy(
                     isLoading = false,
-                    userItems = users.toUserItemUIStateList()
+                    userItems = newItems,
+                    isLoadingMoreItems = false
                 )
             }
         }
+    }
+
+    fun loadNextPage(lastVisibleItemPosition: Int) {
+        if (_usersUIState.value.userItems.size - lastVisibleItemPosition > 3) return
+
+        if (_usersUIState.value.isLoading || _usersUIState.value.isLoadingMoreItems) return
+
+        if (currentPage >= 3) {
+            _usersUIState.update { it.copy(reachedTheEnd = true) }
+            return
+        }
+
+        _usersUIState.update { it.copy(isLoadingMoreItems = true) }
+
+        loadNextPage()
     }
 
     private fun List<User>.toUserItemUIStateList(): List<UserItemUIState> {
@@ -77,21 +94,32 @@ class UsersViewModel @Inject constructor(
         _usersUIState.update { it.copy(isLoading = true) }
 
         //some logic regarding the favourite status, repository -> api call? (whatever that status might reflect)
-        val index = _usersUIState.value.userItems.indexOf(uiUser)
+        val currentUserItems = _usersUIState.value.userItems.toMutableList()
+        val index = currentUserItems.indexOf(uiUser)
         if (index == -1) {
             _usersUIState.update { it.copy(isLoading = false) }
             return
         }
 
-        val item = _usersUIState.value.userItems[index]
+        val item = currentUserItems[index]
         val newItem = item.copy(isFavourite = !item.isFavourite)
 
-        val newItems = _usersUIState.value.userItems.toMutableList()
-        newItems[index] = newItem
+        currentUserItems[index] = newItem
         _usersUIState.update {
             it.copy(
                 isLoading = false,
-                userItems = newItems
+                userItems = currentUserItems.toSet()
+            )
+        }
+    }
+
+    override fun onError(exception: RandomUsersException) {
+        super.onError(exception)
+        _usersUIState.update {
+            it.copy(
+                isLoading = false,
+                //not a real scenario message
+                errorMessage = exception.message
             )
         }
     }

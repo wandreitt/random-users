@@ -2,7 +2,10 @@ package com.andrei.wegroszta.randomusers.users.ui
 
 data class UsersUIState(
     val isLoading: Boolean = false,
-    val userItems: List<UserItemUIState> = emptyList()
+    val userItems: Set<UserItemUIState> = emptySet(),
+    val isLoadingMoreItems: Boolean = false,
+    val reachedTheEnd: Boolean = false,
+    val errorMessage: String? = null
 )
 
 data class UserItemUIState(

@@ -5,4 +5,8 @@
 
     <string name="users_title">Users</string>
     <string name="user_item_description_template">%d years from %s</string>
+    <string name="users_end_of_data">No more data</string>
+
+    <string name="fab_edit_content_desc">Edit something</string>
+    <string name="users_edit_action">FAB Edit</string>
 </resources>

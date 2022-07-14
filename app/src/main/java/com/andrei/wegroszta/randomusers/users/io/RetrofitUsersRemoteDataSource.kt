@@ -1,5 +1,6 @@
 package com.andrei.wegroszta.randomusers.users.io
 
+import com.andrei.wegroszta.randomusers.networking.runWithNetworkErrorHandling
 import com.andrei.wegroszta.randomusers.users.data.*
 import com.andrei.wegroszta.randomusers.users.data.UsersRepository.UsersRemoteDataSource
 import javax.inject.Inject
@@ -13,9 +14,9 @@ class RetrofitUsersRemoteDataSource @Inject constructor(
     private val seed: String
 ) : UsersRemoteDataSource {
 
-    override suspend fun loadUsers(page: Int): List<User> {
+    override suspend fun loadUsers(page: Int): List<User> = runWithNetworkErrorHandling {
         val networkResults = service.getUsers(page, resultsPerPage, seed).results
-        return networkResults.map { it.toUser() }
+        networkResults.map { it.toUser() }
     }
 
     private fun NetworkUser.toUser() = User(

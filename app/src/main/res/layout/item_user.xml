@@ -4,28 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="16dp">
+    android:paddingHorizontal="@dimen/default_horizontal_spacing"
+    android:paddingVertical="@dimen/default_vertical_spacing">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivPicture"
         style="@style/UserPictureStyle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toTopOf="@id/ivFavourite"
-        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ellipsize="end"
-        android:maxLines="1"
+        style="@style/UserNameStyle"
         app:layout_constraintEnd_toStartOf="@+id/ivAttachment"
         app:layout_constraintStart_toEndOf="@id/ivPicture"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,40 +25,30 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDetails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
-        app:layout_constraintEnd_toStartOf="@+id/ivAttachment"
+        style="@style/UserDetailsStyle"
         app:layout_constraintStart_toStartOf="@id/tvName"
         app:layout_constraintTop_toBottomOf="@id/tvName"
         tools:text="28 years old from US" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivAttachment"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        style="@style/UserAttachmentImageStyle"
         app:layout_constraintBottom_toBottomOf="@id/tvUserTime"
         app:layout_constraintEnd_toStartOf="@id/tvUserTime"
-        app:layout_constraintTop_toTopOf="@id/tvUserTime"
-        app:srcCompat="@drawable/ic_attachment" />
+        app:layout_constraintTop_toTopOf="@id/tvUserTime" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvUserTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/UserTimeStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="15:38" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivFavourite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        style="@style/UserFavouriteImageStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserTime"
-        app:srcCompat="@drawable/ic_star_empty" />
+        app:layout_constraintTop_toBottomOf="@id/tvUserTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

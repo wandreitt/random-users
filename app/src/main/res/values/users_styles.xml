@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoadingMoreItemsContainerStyle">
+        <item name="android:layout_height">@dimen/more_items_loading_container_height</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">?attr/colorOnPrimary</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="FABEditUsersStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">@dimen/fab_margins</item>
+        <item name="android:src">@drawable/ic_edit</item>
+        <item name="backgroundTint">@color/primary_500</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="UserPictureStyle">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="layout_constraintDimensionRatio">1:1</item>
+    </style>
+
+    <style name="UserNameStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/spacing_small</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="UserDetailsStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="UserTimeStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="UserAttachmentImageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="srcCompat">@drawable/ic_attachment</item>
+    </style>
+
+    <style name="UserFavouriteImageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/user_favourite_image_margin_top</item>
+        <item name="srcCompat">@drawable/ic_star_empty</item>
+    </style>
+</resources>
